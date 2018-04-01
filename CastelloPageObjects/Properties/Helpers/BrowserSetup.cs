@@ -8,7 +8,7 @@ using OpenQA.Selenium.Support;
 using OpenQA.Selenium.Chrome;
 using SeleniumExtras.PageObjects;
 
-namespace SpecfowIntro.Helpers
+namespace CastelloPageObjects.Helpers
 {
     public abstract class BrowserPage
     {

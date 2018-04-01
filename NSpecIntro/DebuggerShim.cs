@@ -4,6 +4,7 @@ using NSpec;
 using NSpec.Assertions;
 using NSpec.Domain;
 using NSpec.Domain.Formatters;
+using NUnit.Framework;
 
 /*
  * Howdy,
@@ -24,10 +25,10 @@ using NSpec.Domain.Formatters;
 //[TestFixture]
 public class DebuggerShim
 {
-    //[Test]
+    [Test]
     public void debug()
     {
-        var tagOrClassName = "class_or_tag_you_want_to_debug";
+        var tagOrClassName = "search";
 
         var types = GetType().GetTypeInfo().Assembly.GetTypes();
         // OR

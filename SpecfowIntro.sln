@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecfowIntro", "SpecfowIntr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSpecIntro", "NSpecIntro\NSpecIntro.csproj", "{47714FAF-5FE8-4430-871D-F49AF7D2E681}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CastelloPageObjects", "CastelloPageObjects\CastelloPageObjects.csproj", "{D7A13906-7521-4FBB-BA09-933B4CF1D98C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{47714FAF-5FE8-4430-871D-F49AF7D2E681}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47714FAF-5FE8-4430-871D-F49AF7D2E681}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47714FAF-5FE8-4430-871D-F49AF7D2E681}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7A13906-7521-4FBB-BA09-933B4CF1D98C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7A13906-7521-4FBB-BA09-933B4CF1D98C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7A13906-7521-4FBB-BA09-933B4CF1D98C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7A13906-7521-4FBB-BA09-933B4CF1D98C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

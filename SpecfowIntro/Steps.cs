@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TechTalk.SpecFlow;
-using SpecfowIntro.Pages;
-using SpecfowIntro.Helpers;
+using CastelloPageObjects.Pages;
+using CastelloPageObjects.Helpers;
 using FluentAssertions;
 using System.Threading;
 
@@ -20,7 +20,7 @@ namespace SpecfowIntro
         [Given(@"RecipeOverview page is opened")]
         public void GivenRecipeOverviewPageIsOpened()
         {
-            RecipeOverviewPage = Browser.OpenPage<RecipeOverviewPage>("https://castello-tie.cmsstage.com/recipes/");
+            RecipeOverviewPage = Browser.OpenPage<RecipeOverviewPage>(RecipeOverviewPage.Url);
         }
 
         [When(@"I have entered '(.*)' into the SearchField")]

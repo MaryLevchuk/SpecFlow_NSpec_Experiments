@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 using SeleniumExtras.WaitHelpers;
-using SpecfowIntro.Helpers;
+using CastelloPageObjects.Helpers;
 
-namespace SpecfowIntro.Pages
+namespace CastelloPageObjects.Pages
 {
     public class RecipeOverviewPage : BrowserPage
     {
+        public static string Url = "https://castello-tie.cmsstage.com/recipes/";
         // private IWebDriver _driver;
 
         [FindsBy(How = How.CssSelector, Using = ".overview-filters__search-title.js-filter-search")]
