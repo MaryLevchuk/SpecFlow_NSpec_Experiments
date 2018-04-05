@@ -26,7 +26,7 @@ namespace NSpecIntro
                     before = () =>
                     {
                         page.EnterSearchQuery(searchQuery);
-                        Thread.Sleep(2000);
+                        //Thread.Sleep(4000);
                     };
 
                     it[$"result should contain '{searchQuery}' in the title"] =

@@ -15,12 +15,13 @@ namespace SpecfowIntro
     class Steps
     {
         public RecipeOverviewPage RecipeOverviewPage;
-        public BrowserSetup Browser { get; } = new BrowserSetup();
+        public BrowserSetup Browser { get; } = new BrowserSetup("UI");
 
         [Given(@"RecipeOverview page is opened")]
         public void GivenRecipeOverviewPageIsOpened()
         {
             RecipeOverviewPage = Browser.OpenPage<RecipeOverviewPage>(RecipeOverviewPage.Url);
+            Thread.Sleep(5000);
         }
 
         [When(@"I have entered '(.*)' into the SearchField")]

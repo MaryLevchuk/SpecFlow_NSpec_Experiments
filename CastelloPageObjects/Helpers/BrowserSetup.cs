@@ -7,15 +7,19 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support;
 using OpenQA.Selenium.Chrome;
 using SeleniumExtras.PageObjects;
+using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.WaitHelpers;
 
 namespace CastelloPageObjects.Helpers
 {
     public abstract class BrowserPage
     {
         protected IWebDriver Driver;
+        public WebDriverWait Wait;
         internal void SetDriver(IWebDriver driver)
         {
             Driver = driver;
+            Wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(60));
             PageFactory.InitElements(driver, this);
         }
     }
@@ -25,7 +29,7 @@ namespace CastelloPageObjects.Helpers
     public class BrowserSetup
     {
         public IWebDriver Driver;
-
+        
         public BrowserSetup(string mode)
         {
             switch (mode)
@@ -39,8 +43,11 @@ namespace CastelloPageObjects.Helpers
                     Driver = new ChromeDriver();
                     break;
             }
+
             
-           
+            
+
+
         }
 
         public TPage OpenPage<TPage>(string url)
