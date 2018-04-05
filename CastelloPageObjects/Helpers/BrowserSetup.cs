@@ -20,15 +20,27 @@ namespace CastelloPageObjects.Helpers
         }
     }
 
+    
+
     public class BrowserSetup
     {
         public IWebDriver Driver;
-        public BrowserSetup()
+
+        public BrowserSetup(string mode)
         {
-            //ChromeOptions option = new ChromeOptions();
-            //option.AddArgument("--headless");
-            //Driver = new ChromeDriver(option);
-            Driver = new ChromeDriver();
+            switch (mode)
+            {
+                case "Headless":
+                    ChromeOptions option = new ChromeOptions();
+                    option.AddArgument("--headless");
+                    Driver = new ChromeDriver(option);
+                    break;
+                case "UI":
+                    Driver = new ChromeDriver();
+                    break;
+            }
+            
+           
         }
 
         public TPage OpenPage<TPage>(string url)

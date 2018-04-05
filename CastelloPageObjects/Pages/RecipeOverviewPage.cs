@@ -34,9 +34,11 @@ namespace CastelloPageObjects.Pages
         public void EnterSearchQuery(string searchQuery)
         {
             SearchItem.Click();
+            Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(3);
+            
             SearchInputField.SendKeys(searchQuery);
             SearchInputField.SendKeys(Keys.Return);
-            Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
         }
 
         public string FirstRecipeTitle()

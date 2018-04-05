@@ -27,7 +27,7 @@ namespace SpecfowIntro
         public void WhenIHaveEnteredIntoTheSearchField(string searchQuery)
         {
             RecipeOverviewPage.EnterSearchQuery(searchQuery);
-            Thread.Sleep(1000); // todo: find a correct way (see ExpectedConditions)
+            Thread.Sleep(2000); // todo: find a correct way (see ExpectedConditions)
         }
 
         [Then(@"result should contain '(.*)' in the title")]

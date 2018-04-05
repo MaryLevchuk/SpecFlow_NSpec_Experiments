@@ -14,7 +14,7 @@ namespace NSpecIntro
         void describe_enter_search_query()
         {
             RecipeOverviewPage page = null;
-            BrowserSetup browser = new BrowserSetup();
+            BrowserSetup browser = new BrowserSetup("UI");
             var searchQuery = "cake";
 
             context["given Recipe Overview page is opened"] = () =>
