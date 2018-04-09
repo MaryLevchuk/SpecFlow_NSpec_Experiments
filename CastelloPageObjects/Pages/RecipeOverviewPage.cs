@@ -7,6 +7,7 @@ using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 using SeleniumExtras.WaitHelpers;
 using CastelloPageObjects.Helpers;
+using System.Threading;
 
 namespace CastelloPageObjects.Pages
 {
@@ -27,23 +28,24 @@ namespace CastelloPageObjects.Pages
 
         public void EnterSearchQuery(string searchQuery)
         {
-            Wait.Until(ExpectedConditions.InvisibilityOfElementLocated(By.CssSelector("div.sign-in-popup")));
-            Wait.Until(ExpectedConditions.ElementIsVisible(By.ClassName(".overview-filters__search-title.js-filter-search")));
-            Console.WriteLine("search is visible");
             SearchItem.Click();
-            
-            Console.WriteLine("clicked on search");
-            
+            SearchInputField.Clear();
             SearchInputField.SendKeys(searchQuery);
-           // Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(3);
             SearchInputField.SendKeys(Keys.Return);
-           // Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
+            Wait.Until(ExpectedConditions.InvisibilityOfElementLocated(By.CssSelector("svg.ajax-loader__circular")));
+            ///ajax - loader__circular
         }
 
         public string FirstRecipeTitle()
         {
             var firstRecipe = Driver.FindElement(By.CssSelector(".recipes-overview__grid-item--featured h4"));
             return firstRecipe.Text;
+        }
+
+        public Boolean NothingFoundMessage()
+        {
+            var message = Driver.FindElement(By.CssSelector("recipes-overview__empty-result.js-endless-scroll-empty.is-shown h4"));
+            return message.Displayed;
         }
 
     }

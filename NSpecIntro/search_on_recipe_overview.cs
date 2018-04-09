@@ -16,6 +16,7 @@ namespace NSpecIntro
             RecipeOverviewPage page = null;
             BrowserSetup browser = new BrowserSetup("UI");
             var searchQuery = "cake";
+            var negativeQuery = "qwerty";
 
             context["given Recipe Overview page is opened"] = () =>
             {
@@ -26,18 +27,37 @@ namespace NSpecIntro
                     before = () =>
                     {
                         page.EnterSearchQuery(searchQuery);
-                        //Thread.Sleep(4000);
+                        
                     };
 
                     it[$"result should contain '{searchQuery}' in the title"] =
                         () =>
                         {
                             string firstRecipeTitle = page.FirstRecipeTitle();
-                            browser.Close();
+                            //browser.Close();
                             firstRecipeTitle.ToLower().Should().Contain(searchQuery);
 
                         };
                 };
+
+                context[$"when I have entered '{negativeQuery}' in the search field"] = () =>
+               {
+                   before = () =>
+                   {
+                       page.EnterSearchQuery(negativeQuery);
+                   };
+
+                   it["result should show Nothing found message"] =
+                           () =>
+                           {
+                               var isMessageShown = page.NothingFoundMessage();
+                               //browser.Close();
+                               isMessageShown.Should().BeTrue();
+
+                           };
+               };
+
+                afterAll = () => browser.Close();
             };
         }
     }

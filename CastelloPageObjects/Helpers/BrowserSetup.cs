@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
 using SeleniumExtras.PageObjects;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
@@ -24,29 +25,26 @@ namespace CastelloPageObjects.Helpers
         }
     }
 
-    
+   
 
     public class BrowserSetup
     {
         public IWebDriver Driver;
-        
+        public WebDriverWait Wait;
         public BrowserSetup(string mode)
         {
+                      
             switch (mode)
             {
+                case "UI":
+                    Driver = new ChromeDriver();
+                    break;
                 case "Headless":
                     ChromeOptions option = new ChromeOptions();
                     option.AddArgument("--headless");
                     Driver = new ChromeDriver(option);
                     break;
-                case "UI":
-                    Driver = new ChromeDriver();
-                    break;
             }
-
-            
-            
-
 
         }
 
@@ -54,6 +52,7 @@ namespace CastelloPageObjects.Helpers
             where TPage: BrowserPage, new()
         {
             Driver.Navigate().GoToUrl(url);
+            
             var result = new TPage();
             result.SetDriver(Driver);
             return result;
