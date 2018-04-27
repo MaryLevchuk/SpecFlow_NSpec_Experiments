@@ -28,12 +28,16 @@ namespace CastelloPageObjects.Pages
 
         public void EnterSearchQuery(string searchQuery)
         {
+            Wait.Until(ExpectedConditions.InvisibilityOfElementLocated(By.CssSelector(".page-overlay")));
             SearchItem.Click();
             SearchInputField.Clear();
             SearchInputField.SendKeys(searchQuery);
             SearchInputField.SendKeys(Keys.Return);
-            Wait.Until(ExpectedConditions.InvisibilityOfElementLocated(By.CssSelector("svg.ajax-loader__circular")));
-            ///ajax - loader__circular
+            Wait.Until(ExpectedConditions.InvisibilityOfElementLocated(By.CssSelector("svg.ajax - loader__circular")));
+           
+            Thread.Sleep(5000);
+
+            ///svg.ajax - loader__circular
         }
 
         public string FirstRecipeTitle()

@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TechTalk.SpecFlow;
-using CastelloPageObjects.Pages;
-using CastelloPageObjects.Helpers;
+﻿using TechTalk.SpecFlow;
 using FluentAssertions;
 using System.Threading;
 

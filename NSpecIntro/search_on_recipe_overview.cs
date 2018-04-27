@@ -1,10 +1,7 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NSpec;
+﻿using NSpec;
+using FluentAssertions;
 using CastelloPageObjects.Pages;
 using CastelloPageObjects.Helpers;
-using System.Threading;
-using FluentAssertions;
 
 namespace NSpecIntro
 {
@@ -26,6 +23,7 @@ namespace NSpecIntro
                 {
                     before = () =>
                     {
+                        
                         page.EnterSearchQuery(searchQuery);
                         
                     };
@@ -34,28 +32,28 @@ namespace NSpecIntro
                         () =>
                         {
                             string firstRecipeTitle = page.FirstRecipeTitle();
-                            //browser.Close();
+                            
                             firstRecipeTitle.ToLower().Should().Contain(searchQuery);
 
                         };
                 };
 
-                context[$"when I have entered '{negativeQuery}' in the search field"] = () =>
-               {
-                   before = () =>
-                   {
-                       page.EnterSearchQuery(negativeQuery);
-                   };
+               // context[$"when I have entered '{negativeQuery}' in the search field"] = () =>
+               //{
+               //    before = () =>
+               //    {
+               //        page.EnterSearchQuery(negativeQuery);
+               //    };
 
-                   it["result should show Nothing found message"] =
-                           () =>
-                           {
-                               var isMessageShown = page.NothingFoundMessage();
-                               //browser.Close();
-                               isMessageShown.Should().BeTrue();
+               //    it["result should show Nothing found message"] =
+               //            () =>
+               //            {
+               //                var isMessageShown = page.NothingFoundMessage();
+                               
+               //                isMessageShown.Should().BeTrue();
 
-                           };
-               };
+               //            };
+               //};
 
                 afterAll = () => browser.Close();
             };
